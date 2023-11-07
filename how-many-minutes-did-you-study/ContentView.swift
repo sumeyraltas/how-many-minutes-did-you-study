@@ -13,18 +13,21 @@ struct ContentView: View {
     @State private var startTime: Date?
     @State private var endTime: Date?
     @State private var isWorkPeriod = true
-
+    let rotation: Double = 360
+       let duration: Double = 60
     var body: some View {
         VStack {
             Spacer()
             Text("Total Elapsed Time:").font(.largeTitle)
                 .fontWeight(.medium)
             Text(isWorkPeriod ?  "\(formatTimeInterval(workedTime))" : " \(formatTimeInterval(lastWorkedTime))")
-                .font(.largeTitle)
-                .fontWeight(.medium).padding()
+                .font(.system(size: 65, weight: .medium))
+                .padding()
+                
             Spacer()
             if !isTracking {
                 HStack {
+    
                     Spacer()
                     Button(action: {
                         startTracking()
